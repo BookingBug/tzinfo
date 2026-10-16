@@ -17,6 +17,15 @@ Identifiers examined: 597
 > "Summary" no longer holds either: all three were classified `identical`, so they
 > fall outside `differs + kind flip` and the identity cannot be restored by
 > recounting.
+>
+> The 1.2026.5 comparison also examined five identifiers and deliberately held
+> them. `Europe/Dublin` differs only in 1925, below the epoch. `CST6CDT`,
+> `EST5EDT`, `MST7MDT` and `PST8PDT` are standalone `timezone` definitions again
+> in 1.2026.5 -- the same kind this fork ships -- and differ from it only below
+> 1970 and above the 2070 ceiling. Rows 375, 389, 521 and 529 still describe them
+> as "linked in the vendored release", which is true of 1.2026.3 only; the other
+> rows carrying that phrase are unaffected, because those identifiers are still
+> linked in 1.2026.5.
 
 Every identifier in the installed gem index is listed below. The point of the
 full enumeration is to show the sweep was exhaustive, rather than limited to

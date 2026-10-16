@@ -79,6 +79,7 @@ end
 if $PROGRAM_NAME == __FILE__
   source_root, gem_version, tzdata_version, out_root, *zones = ARGV
   abort 'usage: generate.rb SOURCE_ROOT GEM_VERSION TZDATA_VERSION OUT_ROOT ZONE...' if zones.empty?
+  abort "OUT_ROOT is not a directory: #{out_root}" unless File.directory?(out_root)
 
   require 'fileutils'
   zones.each do |zone|

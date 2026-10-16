@@ -4,6 +4,20 @@ Installed gem: tzinfo 0.3.62
 Vendored data: tzinfo-data 1.2026.3 (IANA tzdata 2026c)  
 Identifiers examined: 597
 
+> **Superseded in part by the 1.2026.5 refresh (IANA tzdata 2026e).** Everything
+> below -- the figures, the per-zone sections and the full enumeration -- is the
+> 1.2026.3 sweep, and none of it was recomputed; only the three rows named here were
+> re-annotated. Three identifiers recorded `identical` have since been corrected and
+> now ship as definitions: `America/Bogota`, `America/Inuvik` and
+> `America/Winnipeg`. Their rows in the full enumeration are marked
+> `identical (superseded)`, but they are still absent from "Corrected zones
+> (emitted)" and "Does the correction still change anything today?", and
+> `America/Rainy_River` and `Canada/Central` -- which follow `America/Winnipeg` as
+> aliases -- are absent from "Aliases of corrected zones". The cross-check under
+> "Summary" no longer holds either: all three were classified `identical`, so they
+> fall outside `differs + kind flip` and the identity cannot be restored by
+> recounting.
+
 Every identifier in the installed gem index is listed below. The point of the
 full enumeration is to show the sweep was exhaustive, rather than limited to
 the zones named in the original bug report.
@@ -340,7 +354,7 @@ can ever ask for them and no override is possible.
 | 81 | `America/Belize` | identical |  |
 | 82 | `America/Blanc-Sablon` | alias | alias for America/Puerto_Rico |
 | 83 | `America/Boa_Vista` | identical |  |
-| 84 | `America/Bogota` | identical |  |
+| 84 | `America/Bogota` | identical (superseded) | identical under 1.2026.3; corrected in the 1.2026.5 refresh (1992 transition) |
 | 85 | `America/Boise` | identical |  |
 | 86 | `America/Buenos_Aires` | alias | alias for America/Argentina/Buenos_Aires |
 | 87 | `America/Cambridge_Bay` | identical |  |
@@ -393,7 +407,7 @@ can ever ask for them and no override is possible.
 | 134 | `America/Indiana/Vincennes` | identical |  |
 | 135 | `America/Indiana/Winamac` | identical |  |
 | 136 | `America/Indianapolis` | alias | alias for America/Indiana/Indianapolis |
-| 137 | `America/Inuvik` | identical |  |
+| 137 | `America/Inuvik` | identical (superseded) | identical under 1.2026.3; corrected in the 1.2026.5 refresh (permanent DST from 2026-11-01) |
 | 138 | `America/Iqaluit` | identical |  |
 | 139 | `America/Jamaica` | identical |  |
 | 140 | `America/Jujuy` | alias | alias for America/Argentina/Jujuy |
@@ -476,7 +490,7 @@ can ever ask for them and no override is possible.
 | 217 | `America/Vancouver` | differs |  |
 | 218 | `America/Virgin` | alias | alias for America/Puerto_Rico |
 | 219 | `America/Whitehorse` | identical |  |
-| 220 | `America/Winnipeg` | identical |  |
+| 220 | `America/Winnipeg` | identical (superseded) | identical under 1.2026.3; corrected in the 1.2026.5 refresh (permanent DST from 2026-11-01) |
 | 221 | `America/Yakutat` | identical |  |
 | 222 | `America/Yellowknife` | alias | alias for America/Edmonton |
 | 223 | `Antarctica/Casey` | differs |  |

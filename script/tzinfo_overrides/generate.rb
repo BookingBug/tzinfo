@@ -8,24 +8,31 @@
 # the gem and has no DataSource API, so a zone whose rules change upstream stays
 # wrong until its definition file is replaced. This emits those replacements.
 #
-# The two dialects differ only mechanically:
+# The two dialects differ mechanically in two ways:
 #   * 1.x nests one module deeper (TZInfo::Data::Definitions), so the body
 #     dedents by two spaces;
 #   * 1.x carries a leading epoch argument on pre-epoch transitions, which 0.3.x
-#     derives from the rational that follows it;
-#   * quoted symbols are emitted with double quotes and blank lines carry no
-#     trailing whitespace.
+#     derives from the rational that follows it.
+#
+# The generator also normalises quoted symbols to double quotes and strips
+# trailing whitespace. Upstream uses single quotes in both dialects -- the
+# double-quoted form is this fork's convention for the corrected definitions,
+# which every one of them already follows.
 #
 # Usage:
 #   ruby script/tzinfo_overrides/generate.rb SOURCE_ROOT GEM_VERSION TZDATA_VERSION OUT_ROOT ZONE...
 #
-#   SOURCE_ROOT     unpacked tzinfo-data gem's lib/tzinfo/data/definitions
-#   GEM_VERSION     e.g. 1.2026.5   (recorded in the header; the manifest's
-#                                    SOURCE_DATA_VERSION must match it)
+#   SOURCE_ROOT     unpacked tzinfo-data gem's lib/tzinfo/data/definitions, or
+#                   the same path from a tag of the tzinfo/tzinfo-data repo
+#   GEM_VERSION     e.g. 1.2026.5   (recorded in the header; SOURCE_DATA_VERSION
+#                                    in lib/tzinfo_overrides.rb of
+#                                    BookingBug/bookingbug must match it)
 #   TZDATA_VERSION  e.g. 2026e      (recorded in the header)
+#   OUT_ROOT        where definitions are written -- lib/tzinfo/definitions in
+#                   this repo, which is where the gem loads them from
 #
 # Re-running it with the same inputs reproduces its own output byte for byte,
-# and reproduces the 23 definitions generated for DEV-9301 from 1.2026.3.
+# and reproduces the base branch's 23 definitions from 1.2026.3.
 
 HEADER = <<~HDR
   # encoding: UTF-8
